@@ -14,7 +14,9 @@ export function LayoutWithStepper({
   onContinue: () => void;
 }) {
   const pathname = usePathname();
-  const isReviewPage = pathname === "/checkout";
+  const currentPath = pathname.split("/").pop() || "";
+  const isReviewPage = currentPath === "checkout";
+
   const { formData } = useFormSteps();
 
   return (
